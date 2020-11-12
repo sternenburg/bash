@@ -12,7 +12,7 @@ please Select:
 0. Quit
 "
 
-read -p "Enter selection [0-3] > "
+read -p "Enter your selection [0-3] >  "
 
 if [[ $REPLY =~ ^[0-3]$ ]]; then
 	if [[ $REPLY == 0 ]]; then
