@@ -62,3 +62,39 @@ $ git add forgotten_file
 $ git commit --amend
 # 之前提交时忘记了暂存某些修改，补上暂存操作后，重新提交
 # 所以上面的三条命令最终得到一个提交，第二个提交修改了第一个提交的内容
+```
+### 远程仓库的使用
+1. 查看当前远程仓库
+```sh
+$ git remote -v #显示当前的远程仓库，-v是用来显示对应的克隆地址
+# 如果是克隆的某个项目，Git默认用origin标识克隆的原始仓库
+$ git remote show origin # 显示远程仓库的详细信息
+```
+2. 添加远程仓库
+```sh
+$ git remote add work git://github.com/sternenburg/work.git
+$ git remote rm work # 移除远程仓库
+$ git remote rename work work1 # 重命名远程仓库
+```
+3. 抓取数据及推送数据
+```sh
+$ git fetch work1 # 将远端的数据抓取到本地，并不自动合并到当前分支
+$ git pull work1 # 将远端数据抓取到本地，并合并到本地仓库当前分支
+$ git pull work master # 将本地数据推送到远程仓库
+```
+### 增加标签
+```sh
+$ git tag # 显示现有标签
+$ git tag -a v1.0 -m 'my version 1.0' # -a指定标签名称，-m指定标签说明
+$ git push work v1.0 # 默认情况下，git push并不会将标签上传至远端服务器，需显式命令
+$ git push work --tags # 一次推送所有本地新增的标签上去
+```
+
+
+
+
+
+
+
+
+
