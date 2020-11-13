@@ -15,6 +15,16 @@ $ git config --global core.editor vim
 $ git config --list #查看配置信息
 $ git config user.name #查看某项配置信息
 ```
+### 设置忽略文件（不自动跟踪）
+```sh
+$ vim .gitignore # 创建一个名为.gitignore文件
+ *.a	# 忽略所有.a结尾的文件
+ !lib.a # lib.a除外
+ /TODO	# 仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO
+ build/ # 忽略build目录下的所有文件
+ doc/*.txt # 忽略doc/notes.txt，但不包括 doc/server/arch.txt
+```
+
 ### 取得Git项目仓库（repository）的方法之一：从现存目录创建
 ```sh
 # 首先进入到目录中
