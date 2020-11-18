@@ -1,5 +1,5 @@
 [toc]
-### Git的工作流程
+### Git的gongzuoliucheng
 1. 在工作目录中修改文件 **modified**
 2. 对这些修改的文件做快照，并保存在暂存区域 **staged**
 3. 提交更新，将保存在暂存区域的文件快照存储到git目录中 **committed**
@@ -144,7 +144,12 @@ $ git log --graph # 查看分支合并图
 $ git merge --no-ff -m "merge with no-ff" dev
 ```
 4. bug分支
-工作过程中需要创建临时分支处理bug，但是工作还没进行完，没法提交。就可以用`stash`功能“储藏”工作区。
+工作过程中需要创建临时分支处理bug，但是工作还没进行完，没法提交。就可以用`stash`功能临时“储藏”工作区。
 ```sh
-$ git stash
+$ git stash #之后用 git status查看状态，会发现是clean的
+$ git stash list # 查看储藏在哪里
+$ git stash apply # 恢复
+$ git stash drop #删除stash的内容
+
+$ git stash pop # 恢复的同时删除
 ```
