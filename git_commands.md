@@ -99,7 +99,7 @@ $ git remote show origin # 显示远程仓库的详细信息
 ```
 2. 添加远程仓库
 ```sh
-$ git remote add origin git://github.com/sternenburg/work.git #origin为远程仓库的默认叫法
+$ git remote add origin git://github.com/sternenburg/work.git # origin为远程仓库的默认叫法
 
 $ git remote rm origin # 移除远程仓库
 $ git remote rename origin work # 重命名远程仓库
@@ -129,6 +129,8 @@ $ git switch -c dev # 也可以用switch命令
 $ git branch # 查看分支
 $ git checkout master # 切换到master分支
 $ git switch master # 同样，也可以用switch命令
+
+$ git checkout -b branch-name origin/branch-name # 在本地创建和远程分支对应的分支，两个分支最好名称一致
 ```
 2. 合并分支
 ```sh
@@ -153,3 +155,10 @@ $ git stash drop #删除stash的内容
 
 $ git stash pop # 恢复的同时删除，相当于上面的apply和drop两条命令
 ```
+### 多人协作的工作模式
+1. 首先，试图用`git push origin <branch name>`推送自己的修改；
+2. 如果推送失败，是因为远程分支比本地的更新，所以要先用`git pull`抓取并进行合并
+3. 如果`git pull`提示`no tracking information`，则说明本地分支和远程分支之间没有创建链接关系，用命令`git branch --set-upstream-to <branch-name> origin/<branch-name>`创建。
+4. 如果合并有冲突，解决冲突，并在本地commit
+5. 没有冲突或者冲突解决之后，用`git push origin <branch-name>`推送就可以成功
+
