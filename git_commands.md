@@ -25,15 +25,21 @@ $ vim .gitignore # 创建一个名为.gitignore文件
  /TODO	# 仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO
  build/ # 忽略build目录下的所有文件
  doc/*.txt # 忽略doc/notes.txt，但不包括 doc/server/arch.txt
- # 注意，.gitignore文件要commit之后才能生效！
+ 
+ # 如果在项目过程中，把某些文件或目录加入到忽略规则，更改.gitignore文件后不会生效
+ # 需要把本地缓存删除（修改成未track的状态），之后再提交
+ $ git rm -f --cached .
+ $ git add .
+ $ git commit -m 'update .gitignore'
 ```
 
-### 取得Git项目仓库 `repository` 的方法之一：从现存目录创建
+### 取得Git项目仓库 `repository` 的方法
+1. 从现有目录创建
 ```sh
 # 首先进入到目录中
 $ git init # 初始化
 ```
-### 取得Git项目仓库的方法之二：从现有仓库克隆
+2. 从现有仓库克隆
 ```sh
 $ git clone git://github.com/sternenburg/bash.git
 # 会在当前目录下创建一个名为bash的目录，里面含一个.git的目录
