@@ -1,5 +1,3 @@
-### master
-2020111602
 
 ### Git的工作流程
 1. 在工作目录中修改文件 **modified**
@@ -102,8 +100,17 @@ $ git tag -a v1.0 -m 'my version 1.0' # -a指定标签名称，-m指定标签说
 $ git push work v1.0 # 默认情况下，git push并不会将标签上传至远端服务器，需显式命令
 $ git push work --tags # 一次推送所有本地新增的标签上去
 ```
+### 回退到之前的版本
+```sh
+$ git log # 查看历史记录
+$ git log --pretty=oneline  # 精简输出信息
 
+$ git reset --hard HEAD^ # 回退到上一个版本 HEAD^^是上上一个版本
+$ git reset --hard 1095a # 回退到一个指定的版本，1095a是commit id，不用写全
 
+# 注意！回到之前版本后，后来新增的版本就看不到了，需要用reflog命令来查找commit id
+$ git reflog # 用于记录每一次命令
+```
 
 
 
