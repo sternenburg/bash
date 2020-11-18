@@ -1,6 +1,3 @@
-### dev1
-### a new branch: dev1
-
 [toc]
 ### Git的工作流程
 1. 在工作目录中修改文件 **modified**
@@ -141,13 +138,3 @@ $ git branch -d dev # 删除dev分支
 # 当git无法自动合并分支时，就必须首先解决冲突，解决冲突后再提交，就完成了合并
 $ git log --graph # 查看分支合并图
 ```
-
-### master
-
-### master 2
-
-
-
-
-
-
