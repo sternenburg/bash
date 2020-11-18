@@ -1,4 +1,4 @@
-### add merge
+### add merge with fast forward
 
 [toc]
 ### Git的工作流程
