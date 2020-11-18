@@ -143,3 +143,8 @@ $ git log --graph # 查看分支合并图
 ```sh
 $ git merge --no-ff -m "merge with no-ff" dev
 ```
+4. bug分支
+工作过程中需要创建临时分支处理bug，但是工作还没进行完，没法提交。就可以用`stash`功能“储藏”工作区。
+```sh
+$ git stash
+```
