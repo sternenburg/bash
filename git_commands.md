@@ -1,3 +1,4 @@
+[toc]
 
 ### Git的工作流程
 1. 在工作目录中修改文件 **modified**
@@ -26,7 +27,7 @@ $ vim .gitignore # 创建一个名为.gitignore文件
  doc/*.txt # 忽略doc/notes.txt，但不包括 doc/server/arch.txt
 ```
 
-### 取得Git项目仓库（repository）的方法之一：从现存目录创建
+### 取得Git项目仓库 `repository` 的方法之一：从现存目录创建
 ```sh
 # 首先进入到目录中
 $ git init # 初始化
@@ -49,7 +50,7 @@ $ git diff # 查看当前文件和暂存区域快照之间的差异，也就是�
 $ git diff --staged # 查看已经暂存的文件和上次提交的快照之间的差异
 $ git commit # 提交更新，会打开编辑器，第一行用于输入提交说明
 $ git commit -m "test" # 使用-m，提交更新的同时输入说明信息
-$ git commit -a -m "test" # 使用-a，跳过暂存（git addd）阶段，直接提交
+$ git commit -a -m "test" # 使用-a，跳过暂存（git add）阶段，直接提交
 ```
 ### 移除文件
 ```sh
@@ -99,15 +100,18 @@ $ git remote show origin # 显示远程仓库的详细信息
 ```
 2. 添加远程仓库
 ```sh
-$ git remote add work git://github.com/sternenburg/work.git
-$ git remote rm work # 移除远程仓库
-$ git remote rename work work1 # 重命名远程仓库
+$ git remote add origin git://github.com/sternenburg/work.git #origin为远程仓库的默认叫法
+
+$ git remote rm origin # 移除远程仓库
+$ git remote rename origin work # 重命名远程仓库
 ```
 3. 抓取数据及推送数据
 ```sh
-$ git fetch work1 # 将远端的数据抓取到本地，并不自动合并到当前分支
-$ git pull work1 # 将远端数据抓取到本地，并合并到本地仓库当前分支
-$ git pull work master # 将本地数据推送到远程仓库
+$ git fetch work # 将远端的数据抓取到本地，并不自动合并到当前分支
+$ git pull work # 将远端数据抓取到本地，并合并到本地仓库当前分支
+$ git push work master # 将本地数据(master 分支）推送到远程仓库
+
+# 如果远程仓库是空的话，第一次推送加上 -u 参数，Git不但会把本地master分支内容推送到远程新的master分支，还会将本地的master分支和远程的master分支关联起来，这样之后的推送和拉取就可以简化命令
 ```
 ### 增加标签
 ```sh
@@ -116,6 +120,26 @@ $ git tag -a v1.0 -m 'my version 1.0' # -a指定标签名称，-m指定标签说
 $ git push work v1.0 # 默认情况下，git push并不会将标签上传至远端服务器，需显式命令
 $ git push work --tags # 一次推送所有本地新增的标签上去
 ```
+### 分支管理
+1. 创建分支
+```sh
+$ git branch dev # 创建分支
+$ git checkout -b dev # 创建一个新的分支，并切换到新分支
+$ git switch -c dev # 也可以用switch命令
+
+$ git branch # 查看分支
+$ git checkout master # 切换到master分支
+$ git switch master # 同样，也可以用switch命令
+```
+2. 合并分支
+```sh
+$ git merge dev # 把dev分支合并到当前的master分支上
+$ git branch -d dev # 删除dev分支
+
+# 当git无法自动合并分支时，就必须首先解决冲突，解决冲突后再提交，就完成了合并
+$ git log --graph # 查看分支合并图
+```
+
 
 
 
