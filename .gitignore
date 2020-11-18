@@ -4,4 +4,4 @@
 ?/TODO		# 忽略项目根目录下的TODO文件
 build/		# 忽略 bulid/ 目录下的所有文件
 doc/*.txt	# 例如会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
-*.swp		# 忽略所有以.swp结尾的文件
+*.swp		# 忽略所有以.swp结尾的文件 。。。 为啥不起作用？
