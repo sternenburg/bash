@@ -25,6 +25,7 @@ $ vim .gitignore # 创建一个名为.gitignore文件
  /TODO	# 仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO
  build/ # 忽略build目录下的所有文件
  doc/*.txt # 忽略doc/notes.txt，但不包括 doc/server/arch.txt
+ # 注意，.gitignore文件要commit之后才能生效！
 ```
 
 ### 取得Git项目仓库 `repository` 的方法之一：从现存目录创建
@@ -134,7 +135,11 @@ $ git branch # 查看分支
 $ git checkout master # 切换到master分支
 $ git switch master # 同样，也可以用switch命令
 
-$ git checkout -b branch-name origin/branch-name # 在本地创建和远程分支对应的分支，两个分支最好名称一致
+$ git checkout -b branch-name origin/branch-name # 如果远程分支已经存在，此命令可以在本地创建和远程分支对应的分支，两个分支最好名称一致
+
+# 如果远程分支不存在，那么需要先在本地创建分支，再push上去
+$ git checkout -b branch-name
+$ git push origin branch-name
 ```
 2. 合并分支
 ```sh
