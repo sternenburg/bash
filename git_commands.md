@@ -151,5 +151,5 @@ $ git stash list # 查看储藏在哪里
 $ git stash apply # 恢复
 $ git stash drop #删除stash的内容
 
-$ git stash pop # 恢复的同时删除
+$ git stash pop # 恢复的同时删除，相当于上面的apply和drop两条命令
 ```
