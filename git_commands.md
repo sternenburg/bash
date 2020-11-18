@@ -39,7 +39,7 @@ $ vim .gitignore # 创建一个名为.gitignore文件
 # 首先进入到目录中
 $ git init # 初始化
 ```
-2. 从现有仓库克隆
+2. 从现有仓库克隆   
 ```sh
 $ git clone git://github.com/sternenburg/bash.git
 # 会在当前目录下创建一个名为bash的目录，里面含一个.git的目录
