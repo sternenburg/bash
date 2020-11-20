@@ -3,6 +3,7 @@
 # posit_param: script to view command line parameters
 
 echo "
+Number of arguments: $#
 \$0 = $0
 \$1 = $1
 \$2 = $2
