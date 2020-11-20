@@ -1,3 +1,4 @@
+
 [toc]
 ### Git的工作流程
 1. 在工作目录中修改文件 **modified**
@@ -24,6 +25,7 @@ $ vim .gitignore # 创建一个名为.gitignore文件
  /TODO	# 仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO
  build/ # 忽略build目录下的所有文件
  doc/*.txt # 忽略doc/notes.txt，但不包括 doc/server/arch.txt
+ # 注意，.gitignore文件要commit之后才能生效！
 ```
 
 ### 取得Git项目仓库 `repository` 的方法之一：从现存目录创建
@@ -100,6 +102,9 @@ $ git remote show origin # 显示远程仓库的详细信息
 2. 添加远程仓库
 ```sh
 $ git remote add origin git://github.com/sternenburg/work.git # origin为远程仓库的默认叫法
+# 注意，这里使用的是git协议，只能抓取，无法推送
+
+$ git remote add origin git@github.com:sternenburg/work.git #这里使用的是ssh协议，可以推送。但是要生成SSH key，并在github上配置好 
 
 $ git remote rm origin # 移除远程仓库
 $ git remote rename origin work # 重命名远程仓库
@@ -130,12 +135,18 @@ $ git branch # 查看分支
 $ git checkout master # 切换到master分支
 $ git switch master # 同样，也可以用switch命令
 
-$ git checkout -b branch-name origin/branch-name # 在本地创建和远程分支对应的分支，两个分支最好名称一致
+$ git checkout -b branch-name origin/branch-name # 如果远程分支已经存在，此命令可以在本地创建和远程分支对应的分支，两个分支最好名称一致
+
+# 如果远程分支不存在，那么需要先在本地创建分支，再push上去
+$ git checkout -b branch-name
+$ git push origin branch-name
 ```
 2. 合并分支
 ```sh
 $ git merge dev # 把dev分支合并到当前的master分支上
 $ git branch -d dev # 删除dev分支
+
+$ git push origin :<branch-name> # 删除远程分支。参考Pro Git, p62
 
 # 当git无法自动合并分支时，就必须首先解决冲突，解决冲突后再提交，就完成了合并
 $ git log --graph # 查看分支合并图
