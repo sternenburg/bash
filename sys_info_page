@@ -69,8 +69,8 @@ filename=
 
 while [[ -n $1 ]]; do # 只要位置参数$1不为空,则循环继续
 	case $1 in 
-		-f | --file)		shift     #使位置参数$1的内容							#置换为-f选项后的文件名
-					filename=$1
+		-f | --file)		shift     #使位置参数$1的内容			#置换为-f选项后的文件名
+			        	filename=$1
 					;;
 		-i | --interactive)	interactive=1
 					;;
