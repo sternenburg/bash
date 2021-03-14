@@ -605,3 +605,23 @@ if read -t 10 -sp "Enter secret pass phrase > " secret_pass; then
      echo -e "\nSecret pass phrase = '$secret_pass'"
 ```
 
+***如果`read`之后没有变量，则shell变量`REPLY`会包含所有输入***
+
+#### while
+```bash
+while commands; do commands; done
+#!/bin/bash
+# while-count: display a series of numbers
+count=1
+while [ $count -le 5 ]; do
+# while (( $count <= 5 )); do
+    echo $count
+    count=$((count + 1))
+done
+echo "Finished."
+```
+**跳出循环**
+- `break`: 跳出循环，执行循环后的语句
+- `continue`:  跳出此次循环，执行下一个循环
+
+

@@ -156,6 +156,11 @@ $ git push origin :<branch-name> # 删除远程分支。参考Pro Git, p62
 
 # 当git无法自动合并分支时，就必须首先解决冲突，解决冲突后再提交，就完成了合并
 $ git log --graph # 查看分支合并图
+
+
+# 合并分支时出现：fatal: refusing to merge unrelated histories，是因为两个分支没有取得联系。
+# 解决方法是在后面加上 --allow-unrelated-histories
+$ git merge dev --allow-unrelated-histories
 ```
 3. 禁用fast forward模式的merge
 通常在合并分支时，如果可能的话，Git会使用`fast forward`的模式，但是删除分支后，会丢失分支信息。可以通过强制禁用`fast forward`的方式，使Git在合并时生成一个新的commit，这样从分支历史就可以看出分支信息。
